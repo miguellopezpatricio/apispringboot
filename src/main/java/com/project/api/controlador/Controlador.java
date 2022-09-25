@@ -34,21 +34,22 @@ public class Controlador {
     }
 
     @GetMapping("/api/{codigo}")
-    public Person seleccionaPorCodigo(@PathVariable int codigo){
+    public ResponseEntity<?> seleccionaPorCodigo(@PathVariable int codigo){
 
-        return action.findByCodigo(codigo);
+        return servizo.selecionarPeloCodigo(codigo);
     }
 
     @PutMapping("/api")
-    public Person editar(@RequestBody Person obj){
-      return action.save(obj);
+    public ResponseEntity<?> editar(@RequestBody Person obj){
+
+        return servizo.editar(obj);
     }
 
     @DeleteMapping("/api/{codigo}")
-    public void remover(@PathVariable int codigo){
+    public ResponseEntity<?> remover(@PathVariable int codigo){
 
-        Person obj = seleccionaPorCodigo(codigo);
-        action.delete(obj);
+        return servizo.remover(codigo);
+
     }
 
     @GetMapping("/api/contador")

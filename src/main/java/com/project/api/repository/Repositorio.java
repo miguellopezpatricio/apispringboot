@@ -34,5 +34,6 @@ public interface Repositorio extends CrudRepository<Person, Integer> {
     List<Person> idadeMaiorIgual(int idade);
 
 
+    int countByCodigo(int codigo);
 
 }
