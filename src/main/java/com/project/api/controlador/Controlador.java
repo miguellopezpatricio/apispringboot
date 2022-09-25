@@ -1,10 +1,12 @@
 package com.project.api.controlador;
 
 import com.project.api.model.Person;
-import com.project.api.repository.Respositorio;
+import com.project.api.repository.Repositorio;
+import com.project.api.service.Servizo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,17 +16,21 @@ import java.util.List;
 public class Controlador {
 
     @Autowired
-    private Respositorio action;
+    private Repositorio action;
+
+    @Autowired
+    private Servizo servizo;
     
     @PostMapping("/api")
-    public Person cadastrar(@RequestBody Person obj){
-        return action.save(obj);
+    public ResponseEntity<?> cadastrar(@RequestBody Person obj){
+
+        return servizo.cadastrar(obj);
     }
 
 
     @GetMapping("/api")
-    public List<Person> selecionar(){
-        return action.findAll();
+    public ResponseEntity<?> selecionar(){
+        return servizo.seleccionar();
     }
 
     @GetMapping("/api/{codigo}")

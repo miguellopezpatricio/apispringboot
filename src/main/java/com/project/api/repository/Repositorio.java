@@ -10,7 +10,7 @@ import java.util.List;
 // Repositorio
 
 @Repository
-public interface Respositorio extends CrudRepository<Person, Integer> {
+public interface Repositorio extends CrudRepository<Person, Integer> {
 
     List <Person> findAll();
 
