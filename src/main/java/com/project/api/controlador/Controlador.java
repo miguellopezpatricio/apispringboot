@@ -1,5 +1,6 @@
 package com.project.api.controlador;
 
+import com.project.api.model.Cliente;
 import com.project.api.model.Person;
 import com.project.api.repository.Repositorio;
 import com.project.api.service.Servizo;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 // Rutas
@@ -125,6 +127,11 @@ public class Controlador {
     public Person person(@RequestBody Person p){
 
         return p;
+
+    }
+
+    @PostMapping("/cliente")
+    public void cliente(@Valid @RequestBody Cliente obj){
 
     }
 
